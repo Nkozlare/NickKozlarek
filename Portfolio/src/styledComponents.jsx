@@ -20,7 +20,7 @@ const StyledRow = styled.div`
 
 const StyledHeader = styled.h2`
     font-style: italic;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: normal;
 `
 
