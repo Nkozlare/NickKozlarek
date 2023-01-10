@@ -1,64 +1,79 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { StyledFlex } from '../styledComponents.jsx';
+import { StyledFlex, StyledColumn, StyledRow, StyledHeader, Dot, ViewMore } from '../styledComponents.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
-const StyledAbout = styled(StyledFlex)`
-    padding: 10rem;
-    flex-direction: row;
-    gap: 5rem;
-    align-items: center;
-    justify-content: center;
-    width: 70vw;
+const StyledAbout = styled(StyledColumn)`
+    align-items: start;
+    width: 50vw;
+    margin-top: 15rem;
 `
 
-const StyledProfile = styled(StyledFlex)`
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-`
-
-const StyledPhoto = styled.img`
-    width: 20rem;
-    height: auto;
-    border: 2px solid ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
-`
-
-const StyledName = styled.div`
-    text-align: right;
-    h1 {
-        font-size: 4rem;
+const Header = styled(StyledHeader)`
+    p {
         color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
-        border-bottom: 2px solid ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+        margin: 0px;
+        margin-right: 1rem;
     }
-    h2 {
-        color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
-        font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    &:hover {
+        div {
+            margin-left: 2rem;
+            gap: 2rem;
+            div {
+                background-color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
+            }
+        }
     }
 `
 
-const StyledDescription = styled.p`
+const Font = styled.p`
+    transition: 1s;
+    height: ${props => (props.expanded ? '20rem' : '10rem')};
     color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+    border-bottom: 2px solid ${props => (props.expanded ? 'transparent' : (props.theme.dark ? props.theme.lightMagenta : props.theme.splash))};
+    font-size: 1rem;
+    line-height: 1.8rem;
     text-align: right;
+    overflow: hidden;
 `
 
-export default function About () {
+const Dots = styled(StyledRow)`
+    transition: 0.7s;
+    gap: 1rem;
+`
+
+const SingleDot = styled(Dot)`
+    transition: 0.7s;
+    background-color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+`
+
+export default function About ({ toggle }) {
+    const [expanded, setExpanded] = useState(false)
     return (
         <StyledAbout>
-            <StyledProfile>
-                <StyledName>
-                    <h1>
-                        Nick Kozlarek
-                    </h1>
-                    <h2>
-                        Full Stack Software Engineer
-                    </h2>
-                </StyledName>
-                <StyledDescription>
-                    Hello! I am a full stack web developer that specifically enjoys UI and UX design. I come from a creative background and excel at implementing my artistic nature in creating aesthetically pleasing and effective websites.  
-                </StyledDescription>
-            </StyledProfile>
-            <StyledPhoto src='https://i.ibb.co/g9JpRJF/Screen-Shot-2022-12-12-at-9-43-00-AM.png' alt='Picture of Nick Kozlarek with very colorful shirt'/>
+            <Header>
+                <p>
+                    About Me
+                </p>
+                <Dots>
+                    <SingleDot/>
+                    <SingleDot/>
+                    <SingleDot/>
+                </Dots>
+            </Header>
+            <Font expanded={expanded}>
+            Good day! As I mentioned earlier, I am a web designer who conveniently loves designing websites. I do a lot of other stuff when I am not coding, including but not limited to rock climbing, drinking coffee, wishing I could eat gluten, and traveling with my wife, Molly. We recently got back from two years spent working at a children's home in a little country called Eswatini (usually just called Swaziland by the locals). While there, I did some counseling and fixed the furniture that would break frequently from the 'passionate' use of nearly 100 kids. 
+
+            <br/><br/>The idea of becoming a programmer popped up while thinking of how my wife and I could sustainably stay in a developing nation. I have a bunch of friends who are programmers and I decided I would hop on the bandwagon. I was pleasantly surprised when I discovered that not only was I good at it, it perfectly appealed to my creative tendencies and problem-solving process. 
+            </Font>
+            <ViewMore onClick={() => {
+                setExpanded(!expanded)
+            }}>
+                {expanded ? 'View less...' : 'View more...'}
+            </ViewMore>
         </StyledAbout>
     )
 }
-

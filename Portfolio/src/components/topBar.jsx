@@ -11,12 +11,14 @@ const StyledTopBar = styled(StyledFlex)`
 `
 
 const StyledLinks = styled(StyledFlex)`
-    gap: 2rem;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     a {
         border: 2px solid transparent;
-        padding: 0.4rem;
+        border-bottom-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+        padding: 0.6rem;
         transition: 0.3s linear;
         align-items: center;
         justify-content: center;
@@ -31,24 +33,24 @@ const StyledLinks = styled(StyledFlex)`
 `
 
 const StyledLogo = styled.div`
-    color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+    color: ${props => (props.theme.mint)};
     font-size: 3.5rem;
     text-align: center;
 `
 
 const PictureToggle = styled.img`
     cursor: pointer;
-  height: 3rem;
-  width: 3rem;
-  transition: transform 2s ease-in-out;
-  animation-iteration-count: infinite;
-  border-radius: 50%;
-  padding: 2px;
-  color: #132227;
-  background-color: ${props => (props.theme.almond)};
-  &:hover {
-    transform: rotate(360deg);
-  }
+    height: 3rem;
+    width: 3rem;
+    transition: transform 2s ease-in-out;
+    animation-iteration-count: infinite;
+    border-radius: 50%;
+    padding: 2px;
+    color: #132227;
+    background-color: ${props => (props.theme.almond)};
+    &:hover {
+        transform: rotate(360deg);
+    }
 `
 
 export default function topBar ({ color, setColor }) {

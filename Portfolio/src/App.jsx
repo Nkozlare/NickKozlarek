@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import TopBar from './components/topBar.jsx'
+import Intro from './components/intro.jsx';
 import About from './components/About.jsx';
+import Experience from './components/Experience.jsx';
 
 const Body = createGlobalStyle`
   body {
     transition: 0.7s;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;;
     color: #383838;
     background-color: ${props => (props.theme.dark ? props.theme.darkTeal : props.theme.almond)};
   }
@@ -45,8 +47,10 @@ function App() {
     AccentLight: '#004258',
     AccentDark: '#6cc0dc',
     splash: '#67004d',
-    lightMagenta: '#a66896',
-    dark: false
+    lightMagenta: '#d585c1',
+    mint: '#5eeac2',
+    dark: true,
+    about: false,
   });
 
   return (
@@ -55,7 +59,9 @@ function App() {
         <Body/>
         <Components>
           <TopBar color={color} setColor={setColor}/>
-          <About/>
+          <Intro/>
+          <About toggle={color} setColor={setColor}/>
+          <Experience/>
         </Components>
       </ThemeProvider>
     </div>

@@ -1,0 +1,18 @@
+.navLink {
+  padding: 1rem;
+}
+
+.navLink::before{
+  content: '';
+  border: 2px solid transparent;
+  height: 0;
+  width: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.navLink:hover::before{
+  border: 2px solid #67004d;
+  height: auto;
+  width: auto;
+}
