@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { StyledFlex, StyledColumn, StyledRow, StyledHeader, Dot, ViewMore } from '../styledComponents.jsx';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const StyledProjects = styled(StyledColumn)`
     margin-top: 15rem;
@@ -9,7 +11,7 @@ const StyledProjects = styled(StyledColumn)`
 `
 const Header = styled(StyledHeader)`
     p {
-        color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
+        color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         margin: 0px;
         margin-right: 1rem;
     }
@@ -33,7 +35,7 @@ const Dots = styled(StyledRow)`
 
 const SingleDot = styled(Dot)`
     transition: 0.7s;
-    background-color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+    background-color: ${props => (props.theme.dark ? props.theme.mint : props.theme.mint)};
 `
 
 const Project = styled(StyledColumn)`
@@ -51,7 +53,7 @@ const NameLink = styled.div`
     h2 {
         transition: 0.7s;
         font-weight: normal;
-        font-size: 2.3rem;
+        font-size: 2rem;
         color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
     }
     div {
@@ -86,7 +88,7 @@ const Info = styled(StyledColumn)`
         padding-left: 2rem;
         color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         line-height: 1.8rem;
-        overflow: hidden;
+        margin-bottom: 5rem;
     }
 `
 
@@ -124,7 +126,7 @@ export default function Projects () {
 
     const projectList = projects.map((project, index) => {
         return (
-            <Project key={index}>
+            <Project key={index} >
                 <NameLink>
                     <h2>
                         {project.name}
@@ -146,7 +148,7 @@ export default function Projects () {
     })
 
     return (
-        <StyledProjects>
+        <StyledProjects  data-aos="fade-up">
             <Header>
                 <p>
                     Projects

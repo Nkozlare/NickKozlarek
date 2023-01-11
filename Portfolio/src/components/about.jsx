@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { StyledFlex, StyledColumn, StyledRow, StyledHeader, Dot, ViewMore } from '../styledComponents.jsx';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const StyledAbout = styled(StyledColumn)`
+    transition: 0.7s;
     align-items: start;
     max-width: 50vw;
-    margin-top: 15rem;
+    margin-top: ${props =>(props.loading ? '30rem' : '15rem')};
 `
 
 const Header = styled(StyledHeader)`
     p {
-        color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
+        color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         margin: 0px;
         margin-right: 1rem;
     }
@@ -45,13 +48,13 @@ const Dots = styled(StyledRow)`
 
 const SingleDot = styled(Dot)`
     transition: 0.7s;
-    background-color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+    background-color: ${props => (props.theme.dark ? props.theme.mint : props.theme.mint)};
 `
 
 export default function About ({ toggle }) {
     const [expanded, setExpanded] = useState(false)
     return (
-        <StyledAbout>
+        <StyledAbout data-aos="fade-up">
             <Header>
                 <p>
                     About Me

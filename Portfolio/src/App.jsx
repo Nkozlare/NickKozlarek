@@ -5,6 +5,8 @@ import Intro from './components/intro.jsx';
 import About from './components/About.jsx';
 import Experience from './components/Experience.jsx';
 import Projects from './components/Projects.jsx';
+import Contact from './components/contact.jsx';
+import SideLinks from './components/sideLinks.jsx';
 
 const Body = createGlobalStyle`
   body {
@@ -12,7 +14,6 @@ const Body = createGlobalStyle`
     font-family: 'Open Sans', sans-serif;;
     color: #383838;
     background-color: ${props => (props.theme.dark ? props.theme.darkTeal : props.theme.almond)};
-    padding-bottom: 10rem;
   }
 `
 // ${props => (props.theme.dark)}
@@ -65,6 +66,8 @@ function App() {
           <About toggle={color} setColor={setColor}/>
           <Experience/>
           <Projects/>
+          <Contact/>
+          <SideLinks/>
         </Components>
       </ThemeProvider>
     </div>

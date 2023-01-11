@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { StyledFlex, StyledColumn, StyledRow } from '../styledComponents.jsx';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const StyledAbout = styled(StyledFlex)`
     padding: 10rem;
@@ -78,8 +80,11 @@ const Icons = styled(StyledRow)`
 `
 
 export default function Intro () {
+    useEffect(() => {
+        AOS.init({duration: 2000});
+    }, []);
     return (
-        <StyledColumn>
+        <StyledColumn data-aos="fade-up">
             <StyledAbout>
                 <StyledProfile>
                     <StyledName>
