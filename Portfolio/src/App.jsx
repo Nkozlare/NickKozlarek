@@ -61,13 +61,25 @@ function App() {
       <ThemeProvider theme={color}>
         <Body/>
         <Components>
-          <TopBar color={color} setColor={setColor}/>
+          <div id='topbar'>
+            <TopBar color={color} setColor={setColor}/>
+          </div>
           <Intro/>
-          <About toggle={color} setColor={setColor}/>
-          <Experience/>
-          <Projects/>
-          <Contact/>
-          <SideLinks/>
+          <div id='about'>
+            <About/>
+          </div>
+          <div id='experience'>
+            <Experience/>
+          </div>
+          <div id='projects'> 
+            <Projects/>
+          </div>
+          <div id='contact'> 
+            <Contact/>
+          </div>
+          <div> 
+            <SideLinks/>
+          </div>
         </Components>
       </ThemeProvider>
     </div>

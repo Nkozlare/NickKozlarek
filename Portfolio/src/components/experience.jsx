@@ -7,7 +7,12 @@ import 'aos/dist/aos.css';
 const StyledExp = styled(StyledColumn)`
     align-items: start;
     width: 50vw;
-    margin-top: 15rem;
+    margin-bottom: 15rem;
+    @media (max-width: 800px) {
+        width: 70vw;  
+        align-items: center;
+        margin-bottom: 5rem;
+    }
 `
 
 const Header = styled(StyledHeader)`
@@ -25,7 +30,19 @@ const Header = styled(StyledHeader)`
             div {
                 background-color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
             }
+            @media (max-width: 800px) {
+                margin-left: 0;
+                gap: 4rem;
+            }
         }
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;
+        justify-content:center;
+        p {
+            text-align: center;
+            margin-bottom: 1rem;
+        }        
     }
 `
 
@@ -50,6 +67,17 @@ const Job = styled(StyledColumn)`
         padding-left: 2rem;
         color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         line-height: 1.8rem;
+    }
+    @media (max-width: 800px) {
+        justify-content: center;
+        p {
+            text-align: center;
+            padding-left: 0rem;
+        }
+        i, h2 {
+            text-align: center;
+            width: 70vw;
+        }
     }
 `
 

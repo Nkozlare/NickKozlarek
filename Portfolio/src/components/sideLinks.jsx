@@ -21,12 +21,23 @@ const StyledLinks = styled(StyledColumn)`
             }
         }
     }
+    @media (max-width: 800px) {
+        left: 0.5rem;
+        a {
+            img {
+                height: 1.5rem;
+            }
+        }     
+    }
 `
 
 const Line = styled.div`
     height: 5rem;
     width: 0.2rem;
     background-color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
+    @media (max-width: 800px) {
+        height: 3rem;       
+    }
 `
 
 

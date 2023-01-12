@@ -5,25 +5,35 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const StyledAbout = styled(StyledFlex)`
-    padding: 10rem;
-    padding-bottom: 0rem;
+    padding: 10rem 0 0 0;
     flex-direction: row;
     gap: 5rem;
     align-items: center;
     justify-content: center;
     width: 70vw;
+    @media (max-width: 800px) {
+        flex-direction: column;
+        gap: 3rem;
+        padding-top: 5rem;
+    }
 `
 
 const StyledProfile = styled(StyledFlex)`
     flex-direction: column;
     align-items: end;
     justify-content: center;
+    @media (max-width: 800px) {
+        align-items: center;
+    }
 `
 
 const StyledPhoto = styled.img`
     width: 20rem;
     height: auto;
     border: 2px solid ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
+    @media (max-width: 800px) {
+        max-width: 70vw;
+    }
 `
 
 const StyledName = styled.div`
@@ -49,19 +59,39 @@ const StyledName = styled.div`
         font-size: 2rem;
         font-style: italic;
     }
+    @media (max-width: 800px) {
+        max-width: 70vw;
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+        }
+    }
 `
 
 const StyledDescription = styled.p`
     color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
     text-align: right;
     line-height: 1.6rem;
+    @media (max-width: 800px) {
+        text-align: center;        
+    }
 `
 
 const Skills = styled(StyledColumn)`
         margin-top: 2rem;
+        margin-bottom: 15rem;
     p {
+        display: flex;
         color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
         font-size: 1.5rem;
+        flex-wrap: wrap;
+        text-align: center;
+        @media (max-width: 800px) {
+            max-width: 70vw;
+        }
     }
 `
 
@@ -75,6 +105,14 @@ const Icons = styled(StyledRow)`
         color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         &:hover {
             font-size: 4rem;
+        }
+    }
+    flex-wrap: wrap;
+    @media (max-width: 800px) {
+        gap: 1rem;
+        max-width: 70vw;
+        i {
+            font-size: 3rem;
         }
     }
 `

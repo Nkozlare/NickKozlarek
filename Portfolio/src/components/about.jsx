@@ -8,7 +8,12 @@ const StyledAbout = styled(StyledColumn)`
     transition: 0.7s;
     align-items: start;
     max-width: 50vw;
-    margin-top: ${props =>(props.loading ? '30rem' : '15rem')};
+    margin-bottom: 15rem;
+    @media (max-width: 800px) {
+        max-width: 70vw;  
+        align-items: center;
+        margin-bottom: 7rem;
+    }
 `
 
 const Header = styled(StyledHeader)`
@@ -26,7 +31,19 @@ const Header = styled(StyledHeader)`
             div {
                 background-color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
             }
+            @media (max-width: 800px) {
+                margin-left: 0;
+                gap: 4rem;
+            }
         }
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;
+        justify-content:center;
+        p {
+            text-align: center;
+            margin-bottom: 1rem;
+        }        
     }
 `
 
@@ -39,11 +56,19 @@ const Font = styled.p`
     line-height: 1.8rem;
     text-align: right;
     overflow: hidden;
+    @media (max-width: 800px) {
+        height: ${props => (props.expanded ? '30rem' : '15rem')};
+        text-align: center;
+    }
+    @media (max-width: 450px) {
+        height: ${props => (props.expanded ? '50rem' : '15rem')};
+    }
 `
 
 const Dots = styled(StyledRow)`
     transition: 0.7s;
     gap: 1rem;
+    
 `
 
 const SingleDot = styled(Dot)`
@@ -51,7 +76,7 @@ const SingleDot = styled(Dot)`
     background-color: ${props => (props.theme.dark ? props.theme.mint : props.theme.mint)};
 `
 
-export default function About ({ toggle }) {
+export default function About () {
     const [expanded, setExpanded] = useState(false)
     return (
         <StyledAbout data-aos="fade-up">

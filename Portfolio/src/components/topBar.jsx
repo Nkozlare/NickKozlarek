@@ -8,6 +8,10 @@ const StyledTopBar = styled(StyledFlex)`
     justify-content: space-between;
     padding: 2rem;
     width: 90vw;
+    @media (max-width: 800px) {
+        flex-direction: column;
+        width: 70vw;
+    }
 `
 
 const StyledLinks = styled(StyledFlex)`
@@ -29,6 +33,9 @@ const StyledLinks = styled(StyledFlex)`
         &:hover {
             border: 2px solid ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         }
+    }
+    @media (max-width: 800px) {
+        flex-direction: column;        
     }
 `
 
@@ -68,10 +75,10 @@ export default function topBar ({ color, setColor }) {
                     NK
                 </StyledLogo>
                 <StyledLinks>
-                    <a>ABOUT</a>
-                    <a>EXPERIENCE</a>
-                    <a>PROJECTS</a>
-                    <a>CONTACT</a>
+                    <a onClick={() => { handleScroll("about")}}>ABOUT</a>
+                    <a onClick={() => { handleScroll("experience")}}>EXPERIENCE</a>
+                    <a onClick={() => { handleScroll("projects")}}>PROJECTS</a>
+                    <a onClick={() => { handleScroll("contact")}}>CONTACT</a>
                     <PictureToggle
                         onClick={() => {setColor({...color, dark: !color.dark})}}
                         src={!color.dark ? 'https://www.pngall.com/wp-content/uploads/5/Crescent-Moon-PNG-File.png' : 

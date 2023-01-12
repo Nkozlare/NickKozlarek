@@ -5,9 +5,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const StyledProjects = styled(StyledColumn)`
-    margin-top: 15rem;
+    margin-bottom: 10rem;
     align-items: start;
     width: 50vw;
+    @media (max-width: 800px) {
+        width: 70vw;  
+        align-items: center;
+        margin-bottom: 0rem;
+    }
 `
 const Header = styled(StyledHeader)`
     p {
@@ -24,7 +29,19 @@ const Header = styled(StyledHeader)`
             div {
                 background-color: ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
             }
+            @media (max-width: 800px) {
+                margin-left: 0;
+                gap: 4rem;
+            }
         }
+    }
+    @media (max-width: 1000px) {
+        flex-direction: column;
+        justify-content:center;
+        p {
+            text-align: center;
+            margin-bottom: 1rem;
+        }        
     }
 `
 
@@ -71,6 +88,9 @@ const NameLink = styled.div`
             }
         }
     }
+    @media (max-width: 800px) {
+        width: 70vw;  
+    }
 `
 
 const Info = styled(StyledColumn)`
@@ -82,6 +102,10 @@ const Info = styled(StyledColumn)`
         &:hover {
             border: 2px solid ${props => (props.theme.dark ? props.theme.lightMagenta : props.theme.splash)};
         }
+        @media (max-width: 800px) {
+            width: 70vw;
+            height: auto;
+        }       
     }
     p {
         transition: 0.7s;
@@ -89,6 +113,10 @@ const Info = styled(StyledColumn)`
         color: ${props => (props.theme.dark ? props.theme.almond : props.theme.darkTeal)};
         line-height: 1.8rem;
         margin-bottom: 5rem;
+        @media (max-width: 800px) {
+            padding-left: 0rem;
+            text-align: center;
+        }
     }
 `
 
